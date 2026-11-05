@@ -20,14 +20,17 @@
         <a href="#julian">Julian</a>
       </nav>
       <main>
-        <form>
+        <!-- http://127.0.0.1:9013/index.html?email=asdfasdf%40agsd.ca&pass=asdf&flavour=van&spam=yes&choose=yes#ricky -->
+        <form action="#" method="get" enctype="application/x-www-form-urlencoded">
           <div class="formbox">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
+            <!-- <span>Wrong email address</span>
+            <span>Missing the @ sign</span> -->
+            <input type="email" inputmode="email" autocomplete="cc-name" id="email" name="email" value="" placeholder="Please enter..." />
           </div>
           <div class="formbox">
             <label for="pass">Password</label>
-            <input type="password" id="pass" name="pass" />
+            <input type="password" id="pass" name="pass" required minlength="8" />
           </div>
           <fieldset>
             <legend>Pick a Flavour</legend>

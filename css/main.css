@@ -64,58 +64,76 @@
       color: var(--dark);
       font-weight: 300;
     }
-    input::initial-value {
+    input:initial-value {
       /*  */
+      /* color: aliceblue; */
     }
     input::placeholder {
-      /*  */
+      /* pseudo element for the placeholder attribute */
+      color: gray;
     }
     [type='radio'],
     [type='checkbox'] {
       /*  */
       scale: 2;
-      accent-color: var(--primaryShade);
 
       &:checked {
-        accent-color: var(--onPrimary);
+        accent-color: red;
       }
-      :valid {
+    }
+    input {
+      &:valid {
+        /* background-color: blue; */
       }
-      :invalid {
+      &:invalid {
+        /* background-color: red; */
       }
-      :user-valid {
+      &:user-valid {
+        background-color: gold;
       }
-      :user-invalid {
+      &:user-invalid {
+        background-color: red;
+        outline: 20px solid red;
       }
-      :required {
+
+      &:optional {
+        /* not required */
       }
-      :optional {
+      &:in-range {
+        /* type="range" */
       }
-      :in-range {
+      &:out-of-range {
+        /* type="range" */
       }
-      :out-of-range {
+      &:disabled {
+        /* <input type="text" disabled /> */
       }
-      :disabled {
+      &:enabled {
+        /* <input type="text" /> */
       }
-      :enabled {
+      &:read-only {
+        /* <input type="text" readonly /> */
       }
-      :read-only {
+      &:read-write {
+        /* <input type="text" /> */
       }
-      :read-write {
+      &:checked {
+        /* <input type="checkbox" or type="radio" checked /> */
       }
-      :checked {
+      &:indeterminate {
+        /* select or radio with nothing picked */
       }
-      :indeterminate {
+      &:default {
+        /* select or radio option when the page loaded */
       }
-      :default {
+      &:placeholder-shown {
+        /* background-color: green; */
       }
-      :placeholder-shown {
+      &:focus {
       }
-      :focus {
+      &:focus-within {
       }
-      :focus-within {
-      }
-      :focus-visible {
+      &:focus-visible {
       }
     }
 
@@ -126,6 +144,25 @@
       color: var(--light);
       font-size: 1rem;
       font-weight: 300;
+    }
+  }
+
+  .formbox:has(:is(input[type='email'], input[type='url'], input[type='text']):not([required])) {
+    background: salmon;
+  }
+
+  .formbox:has(input[type='email']:not([required]), input[type='text']:not([required]), input[type='url']:not([required]), input[type='tel']:not([required])) {
+    /* not required input inside */
+    /* background: salmon; */
+    grid-template-columns: 1fr 5fr 1fr;
+    &::after {
+      content: '😉';
+    }
+  }
+  .formbox:has(input[required]) {
+    grid-template-columns: 1fr 5fr 1fr;
+    &::after {
+      content: '🔥';
     }
   }
 
