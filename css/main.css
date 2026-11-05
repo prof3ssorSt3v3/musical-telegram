@@ -129,6 +129,20 @@
     }
   }
 
+  @media screen and (width > 600px) {
+    .formbox {
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+      gap: 1rem;
+    }
+    .formbox:has([type='checkbox'], [type='radio']) {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
   .toggle {
     width: 6ch;
     line-height: 1rem;
